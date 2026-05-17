@@ -100,16 +100,12 @@ MainHostPage (FlyoutPage)
 **Lifecycle Propagation:**
 The app demonstrates how MvvmEssentials handles the MAUI limitation where FlyoutPage detail pages don't receive lifecycle events. The library automatically propagates these events through behaviors.
 
-**Navigation Workaround:**
-Implements a workaround for [MAUI bug #22116](https://github.com/dotnet/maui/issues/22116) where directly replacing `FlyoutPage.Detail` causes Android fragment reconstruction and layout issues. The solution manipulates NavigationPage stacks and caches the original Detail page to preserve the UI state.
-
 ## 🚀 Getting Started
 
 ### Prerequisites
 - .NET 9.0 SDK or later
 - Visual Studio 2022 or JetBrains Rider
 - Android SDK (for Android development)
-- Xcode (for iOS development on Mac)
 
 ### Installation
 
@@ -126,14 +122,8 @@ dotnet restore
 
 3. Run the app:
 ```bash
-# Android
+# Android only for now
 dotnet build -t:Run -f net9.0-android
-
-# iOS (Mac only)
-dotnet build -t:Run -f net9.0-ios
-
-# Windows
-dotnet build -t:Run -f net9.0-windows10.0.19041.0
 ```
 
 ## 📦 Using MvvmEssentials in Your Project
