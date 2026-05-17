@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FoodDelivery.Pages.RestaurantsTabPage"
+             Title="{Binding TabTitle}"
+             IconImageSource="🏪">
+    
+    <Grid RowDefinitions="Auto,*">
+        
+        <!-- Header -->
+        <VerticalStackLayout Grid.Row="0" 
+                            Padding="20,15"
+                            BackgroundColor="#FF6B6B">
+            <Label Text="🍔 Find Your Favorite Food" 
+                   FontSize="24" 
+                   FontAttributes="Bold"
+                   TextColor="White" />
+            <Label Text="Choose from our wide selection of restaurants" 
+                   FontSize="14" 
+                   TextColor="White"
+                   Opacity="0.9" />
+        </VerticalStackLayout>
+
+        <!-- Restaurant List -->
+        <CollectionView Grid.Row="1" 
+                       ItemsSource="{Binding Restaurants}"
+                       Margin="10,10,10,10">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Padding="15" 
+                           Margin="5,5"
+                           CornerRadius="12"
+                           HasShadow="True"
+                           BackgroundColor="White">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer 
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.SelectRestaurantCommand}"
+                                CommandParameter="{Binding .}" />
+                        </Frame.GestureRecognizers>
+                        
+                        <Grid ColumnDefinitions="60,*,Auto" RowDefinitions="Auto,Auto,Auto">
+                            
+                            <!-- Restaurant Icon -->
+                            <Label Grid.Column="0" Grid.RowSpan="3"
+                                   Text="{Binding ImageEmoji}"
+                                   FontSize="48"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Center" />
+                            
+                            <!-- Restaurant Name -->
+                            <Label Grid.Column="1" Grid.Row="0"
+                                   Text="{Binding Name}"
+                                   FontSize="18"
+                                   FontAttributes="Bold"
+                                   VerticalOptions="Center" />
+                            
+                            <!-- Cuisine Type -->
+                            <Label Grid.Column="1" Grid.Row="1"
+                                   Text="{Binding Cuisine}"
+                                   FontSize="14"
+                                   TextColor="#6C757D" />
+                            
+                            <!-- Rating & Delivery Time -->
+                            <HorizontalStackLayout Grid.Column="1" Grid.Row="2" Spacing="15">
+                                <HorizontalStackLayout Spacing="4">
+                                    <Label Text="⭐" FontSize="14" />
+                                    <Label Text="{Binding Rating}" 
+                                           FontSize="14"
+                                           FontAttributes="Bold" />
+                                </HorizontalStackLayout>
+                                <HorizontalStackLayout Spacing="4">
+                                    <Label Text="🕐" FontSize="14" />
+                                    <Label Text="{Binding DeliveryTime}" 
+                                           FontSize="14"
+                                           TextColor="#6C757D" />
+                                </HorizontalStackLayout>
+                            </HorizontalStackLayout>
+                            
+                            <!-- Arrow -->
+                            <Label Grid.Column="2" Grid.RowSpan="3"
+                                   Text="›"
+                                   FontSize="32"
+                                   TextColor="#CED4DA"
+                                   VerticalOptions="Center" />
+                            
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </Grid>
+    
+</ContentPage>

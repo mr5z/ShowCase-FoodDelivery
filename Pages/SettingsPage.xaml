@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FoodDelivery.Pages.SettingsPage"
+             Title="Settings">
+    
+    <Grid RowDefinitions="Auto,*">
+        
+        <!-- Header -->
+        <Frame Grid.Row="0"
+               Padding="20"
+               CornerRadius="0,0,20,20"
+               HasShadow="True"
+               BackgroundColor="#17A2B8"
+               Margin="0,0,0,10">
+            <VerticalStackLayout Spacing="5">
+                <Label Text="⚙️ Settings" 
+                       FontSize="28" 
+                       FontAttributes="Bold"
+                       TextColor="White" />
+                <Label Text="Customize your app experience" 
+                       FontSize="14" 
+                       TextColor="White"
+                       Opacity="0.9" />
+            </VerticalStackLayout>
+        </Frame>
+
+        <!-- Settings List -->
+        <ScrollView Grid.Row="1" Padding="20">
+            <VerticalStackLayout Spacing="15">
+                
+                <!-- Notifications -->
+                <Frame Padding="15" CornerRadius="12" HasShadow="True">
+                    <Grid ColumnDefinitions="Auto,*,Auto">
+                        <Label Grid.Column="0" Text="🔔" FontSize="24" VerticalOptions="Center" />
+                        <VerticalStackLayout Grid.Column="1" Spacing="4" Padding="10,0">
+                            <Label Text="Notifications" FontSize="16" FontAttributes="Bold" />
+                            <Label Text="Push notifications for orders" FontSize="12" TextColor="#6C757D" />
+                        </VerticalStackLayout>
+                        <Switch Grid.Column="2" IsToggled="True" VerticalOptions="Center" />
+                    </Grid>
+                </Frame>
+
+                <!-- Location -->
+                <Frame Padding="15" CornerRadius="12" HasShadow="True">
+                    <Grid ColumnDefinitions="Auto,*,Auto">
+                        <Label Grid.Column="0" Text="📍" FontSize="24" VerticalOptions="Center" />
+                        <VerticalStackLayout Grid.Column="1" Spacing="4" Padding="10,0">
+                            <Label Text="Location Services" FontSize="16" FontAttributes="Bold" />
+                            <Label Text="Find restaurants near you" FontSize="12" TextColor="#6C757D" />
+                        </VerticalStackLayout>
+                        <Switch Grid.Column="2" IsToggled="True" VerticalOptions="Center" />
+                    </Grid>
+                </Frame>
+
+                <!-- Dark Mode -->
+                <Frame Padding="15" CornerRadius="12" HasShadow="True">
+                    <Grid ColumnDefinitions="Auto,*,Auto">
+                        <Label Grid.Column="0" Text="🌙" FontSize="24" VerticalOptions="Center" />
+                        <VerticalStackLayout Grid.Column="1" Spacing="4" Padding="10,0">
+                            <Label Text="Dark Mode" FontSize="16" FontAttributes="Bold" />
+                            <Label Text="Switch to dark theme" FontSize="12" TextColor="#6C757D" />
+                        </VerticalStackLayout>
+                        <Switch Grid.Column="2" IsToggled="False" VerticalOptions="Center" />
+                    </Grid>
+                </Frame>
+
+                <!-- Language -->
+                <Frame Padding="15" CornerRadius="12" HasShadow="True">
+                    <Grid ColumnDefinitions="Auto,*,Auto">
+                        <Label Grid.Column="0" Text="🌐" FontSize="24" VerticalOptions="Center" />
+                        <VerticalStackLayout Grid.Column="1" Spacing="4" Padding="10,0">
+                            <Label Text="Language" FontSize="16" FontAttributes="Bold" />
+                            <Label Text="English" FontSize="12" TextColor="#6C757D" />
+                        </VerticalStackLayout>
+                        <Label Grid.Column="2" Text="›" FontSize="32" TextColor="#CED4DA" VerticalOptions="Center" />
+                    </Grid>
+                </Frame>
+                
+                <Button Text="Back"
+                        Command="{Binding GoBackCommand}"
+                        BackgroundColor="#17A2B8"
+                        TextColor="White"
+                        Margin="0,20,0,0"
+                        HeightRequest="50"
+                        CornerRadius="12" />
+                
+            </VerticalStackLayout>
+        </ScrollView>
+
+    </Grid>
+    
+</ContentPage>

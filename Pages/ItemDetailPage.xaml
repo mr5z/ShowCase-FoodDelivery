@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:FoodDelivery.ViewModels"
+             x:Class="FoodDelivery.Pages.ItemDetailPage"
+             x:DataType="vm:ItemDetailViewModel"
+             Title="Item Detail">
+    
+    <Grid RowDefinitions="*,Auto">
+        
+        <!-- Content -->
+        <ScrollView Grid.Row="0" Padding="20">
+            <VerticalStackLayout Spacing="20" VerticalOptions="Center">
+                
+                <Label Text="🍕" 
+                       FontSize="120"
+                       HorizontalOptions="Center" />
+                
+                <Label Text="Item Details" 
+                       FontSize="28"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center" />
+                
+                <Label Text="This is a simple item detail page showcasing navigation with parameters." 
+                       FontSize="16"
+                       TextColor="#6C757D"
+                       HorizontalTextAlignment="Center"
+                       LineBreakMode="WordWrap" />
+                
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- Back Button -->
+        <Frame Grid.Row="1"
+               Padding="20"
+               CornerRadius="20,20,0,0"
+               HasShadow="True"
+               BackgroundColor="White"
+               Margin="0,-10,0,0">
+            <Button Text="Back"
+                    Command="{Binding GoBackCommand}"
+                    BackgroundColor="#007BFF"
+                    TextColor="White"
+                    HeightRequest="50"
+                    CornerRadius="12" />
+        </Frame>
+
+    </Grid>
+    
+</ContentPage>

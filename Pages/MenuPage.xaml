@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FoodDelivery.Pages.MenuPage"
+             Title="Menu"
+             BackgroundColor="#F8F9FA">
+    
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+            
+            <!-- Header -->
+            <VerticalStackLayout Spacing="8" Padding="0,20,0,20">
+                <Label Text="🍔" FontSize="48" HorizontalOptions="Center" />
+                <Label Text="Food Delivery" 
+                       FontSize="24" 
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center" />
+            </VerticalStackLayout>
+
+            <BoxView HeightRequest="1" Color="#E0E0E0" />
+
+            <!-- Menu Items -->
+            <VerticalStackLayout Spacing="10">
+                
+                <Border BackgroundColor="Transparent"
+                        Padding="15,12"
+                        StrokeThickness="0">
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding NavigateToHomeCommand}" />
+                    </Border.GestureRecognizers>
+                    <Label Text="🏠 Home" 
+                           TextColor="#212529" 
+                           FontSize="18"
+                           HorizontalOptions="Start" />
+                </Border>
+
+                <Border BackgroundColor="Transparent"
+                        Padding="15,12"
+                        StrokeThickness="0">
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding NavigateToOrdersCommand}" />
+                    </Border.GestureRecognizers>
+                    <Label Text="📋 My Orders" 
+                           TextColor="#212529" 
+                           FontSize="18"
+                           HorizontalOptions="Start" />
+                </Border>
+
+                <Border BackgroundColor="Transparent"
+                        Padding="15,12"
+                        StrokeThickness="0">
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding NavigateToProfileCommand}" />
+                    </Border.GestureRecognizers>
+                    <Label Text="👤 Profile" 
+                           TextColor="#212529" 
+                           FontSize="18"
+                           HorizontalOptions="Start" />
+                </Border>
+
+                <Border BackgroundColor="Transparent"
+                        Padding="15,12"
+                        StrokeThickness="0">
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding NavigateToSettingsCommand}" />
+                    </Border.GestureRecognizers>
+                    <Label Text="⚙️ Settings" 
+                           TextColor="#212529" 
+                           FontSize="18"
+                           HorizontalOptions="Start" />
+                </Border>
+                
+            </VerticalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+    
+</ContentPage>

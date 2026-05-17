@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:FoodDelivery.ViewModels"
+    x:Class="FoodDelivery.Pages.RestaurantDetailPage"
+    x:DataType="vm:RestaurantDetailViewModel"
+    x:Name="Page"
+    Title="{Binding Restaurant.Name}">
+    
+    <Grid RowDefinitions="Auto,*">
+        
+        <!-- Restaurant Header -->
+        <Frame Grid.Row="0"
+               Padding="20"
+               CornerRadius="0,0,20,20"
+               HasShadow="True"
+               BackgroundColor="#FF6B6B"
+               Margin="0,0,0,10">
+            <Grid ColumnDefinitions="80,*" RowDefinitions="Auto,Auto,Auto">
+                
+                <!-- Restaurant Icon -->
+                <Label Grid.Column="0" Grid.RowSpan="3"
+                       Text="{Binding Restaurant.ImageEmoji}"
+                       FontSize="64"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center" />
+                
+                <!-- Restaurant Name -->
+                <Label Grid.Column="1" Grid.Row="0"
+                       Text="{Binding Restaurant.Name}"
+                       FontSize="24"
+                       FontAttributes="Bold"
+                       TextColor="White" />
+                
+                <!-- Cuisine -->
+                <Label Grid.Column="1" Grid.Row="1"
+                       Text="{Binding Restaurant.Cuisine}"
+                       FontSize="16"
+                       TextColor="White"
+                       Opacity="0.9" />
+                
+                <!-- Info Row -->
+                <HorizontalStackLayout Grid.Column="1" Grid.Row="2" 
+                                      Spacing="20"
+                                      Margin="0,8,0,0">
+                    <HorizontalStackLayout Spacing="5">
+                        <Label Text="⭐" FontSize="14" />
+                        <Label Text="{Binding Restaurant.Rating}" 
+                               FontSize="14"
+                               FontAttributes="Bold"
+                               TextColor="White" />
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout Spacing="5">
+                        <Label Text="🕐" FontSize="14" />
+                        <Label Text="{Binding Restaurant.DeliveryTime}" 
+                               FontSize="14"
+                               TextColor="White" />
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout Spacing="5">
+                        <Label Text="💵" FontSize="14" />
+                        <Label Text="{Binding Restaurant.DeliveryFee, StringFormat='${0:F2}'}" 
+                               FontSize="14"
+                               TextColor="White" />
+                    </HorizontalStackLayout>
+                </HorizontalStackLayout>
+                
+            </Grid>
+        </Frame>
+
+        <!-- Menu Items -->
+        <CollectionView Grid.Row="1" 
+                       ItemsSource="{Binding MenuItems}"
+                       Margin="10,0,10,10">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Padding="15" 
+                           Margin="5,5"
+                           CornerRadius="12"
+                           HasShadow="True"
+                           BackgroundColor="White">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer 
+                                Command="{Binding Source={x:Reference Page}, Path=BindingContext.SelectMenuItemCommand}"
+                                CommandParameter="{Binding .}" />
+                        </Frame.GestureRecognizers>
+                        
+                        <Grid ColumnDefinitions="70,*,Auto" RowDefinitions="Auto,Auto,Auto">
+                            
+                            <!-- Item Icon -->
+                            <Label Grid.Column="0" Grid.RowSpan="3"
+                                   Text="{Binding ImageEmoji}"
+                                   FontSize="52"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Center" />
+                            
+                            <!-- Popular Badge -->
+                            <Frame Grid.Column="0"
+                                   Padding="4,2"
+                                   CornerRadius="8"
+                                   HasShadow="False"
+                                   BackgroundColor="#FFD700"
+                                   VerticalOptions="Start"
+                                   HorizontalOptions="End"
+                                   Margin="0,-5,-5,0"
+                                   IsVisible="{Binding IsPopular}">
+                                <Label Text="⭐" FontSize="10" />
+                            </Frame>
+                            
+                            <!-- Item Name -->
+                            <Label Grid.Column="1" Grid.Row="0"
+                                   Text="{Binding Name}"
+                                   FontSize="17"
+                                   FontAttributes="Bold"
+                                   Margin="0,0,0,4" />
+                            
+                            <!-- Description -->
+                            <Label Grid.Column="1" Grid.Row="1"
+                                   Text="{Binding Description}"
+                                   FontSize="13"
+                                   TextColor="#6C757D"
+                                   LineBreakMode="WordWrap"
+                                   MaxLines="2" />
+                            
+                            <!-- Category -->
+                            <Label Grid.Column="1" Grid.Row="2"
+                                   Text="{Binding Category}"
+                                   FontSize="12"
+                                   TextColor="#FF6B6B"
+                                   FontAttributes="Bold"
+                                   Margin="0,4,0,0" />
+                            
+                            <!-- Price & Add Button -->
+                            <VerticalStackLayout Grid.Column="2" Grid.RowSpan="3"
+                                                VerticalOptions="Center"
+                                                Spacing="8">
+                                <Label Text="{Binding Price, StringFormat='${0:F2}'}"
+                                       FontSize="20"
+                                       FontAttributes="Bold"
+                                       TextColor="#28A745"
+                                       HorizontalTextAlignment="End" />
+                                <Button Text="+"
+                                        FontSize="20"
+                                        BackgroundColor="#28A745"
+                                        TextColor="White"
+                                        WidthRequest="40"
+                                        HeightRequest="40"
+                                        CornerRadius="20"
+                                        Padding="0" />
+                            </VerticalStackLayout>
+                            
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </Grid>
+    
+</ContentPage>

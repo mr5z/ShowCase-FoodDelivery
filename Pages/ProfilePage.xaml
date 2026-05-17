@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FoodDelivery.Pages.ProfilePage"
+             Title="Profile">
+    
+    <Grid RowDefinitions="Auto,*">
+        
+        <!-- Header -->
+        <Border Grid.Row="0"
+                Padding="20"
+                StrokeThickness="0"
+                StrokeShape="RoundRectangle 0,0,20,20"
+                BackgroundColor="#6F42C1"
+                Margin="0,0,0,10"
+                Shadow="{Shadow Brush=Black, Opacity=0.15, Radius=10, Offset='0,2'}">
+            <VerticalStackLayout Spacing="10" HorizontalOptions="Center">
+                <Label Text="👤" 
+                       FontSize="60"
+                       HorizontalOptions="Center" />
+                <Label Text="John Doe" 
+                       FontSize="24" 
+                       FontAttributes="Bold"
+                       TextColor="White"
+                       HorizontalOptions="Center" />
+                <Label Text="john.doe@example.com" 
+                       FontSize="14" 
+                       TextColor="White"
+                       Opacity="0.9"
+                       HorizontalOptions="Center" />
+            </VerticalStackLayout>
+        </Border>
+
+        <!-- Profile Info -->
+        <ScrollView Grid.Row="1" Padding="20">
+            <VerticalStackLayout Spacing="15">
+                
+                <Border Padding="15" 
+                        StrokeThickness="0"
+                        StrokeShape="RoundRectangle 12"
+                        BackgroundColor="White"
+                        Shadow="{Shadow Brush=Black, Opacity=0.1, Radius=8, Offset='0,2'}">
+                    <Grid ColumnDefinitions="Auto,*" 
+                          RowDefinitions="Auto,Auto"
+                          ColumnSpacing="10"
+                          RowSpacing="5">
+                        <Label Grid.Row="0" Grid.Column="0" 
+                               Grid.RowSpan="2"
+                               Text="📧" 
+                               FontSize="24"
+                               VerticalOptions="Center" />
+                        <Label Grid.Row="0" Grid.Column="1" 
+                               Text="Email" 
+                               FontSize="14" 
+                               TextColor="#6C757D" />
+                        <Label Grid.Row="1" Grid.Column="1" 
+                               Text="john.doe@example.com" 
+                               FontSize="16" 
+                               FontAttributes="Bold" />
+                    </Grid>
+                </Border>
+
+                <Border Padding="15" 
+                        StrokeThickness="0"
+                        StrokeShape="RoundRectangle 12"
+                        BackgroundColor="White"
+                        Shadow="{Shadow Brush=Black, Opacity=0.1, Radius=8, Offset='0,2'}">
+                    <Grid ColumnDefinitions="Auto,*" 
+                          RowDefinitions="Auto,Auto"
+                          ColumnSpacing="10"
+                          RowSpacing="5">
+                        <Label Grid.Row="0" Grid.Column="0" 
+                               Grid.RowSpan="2"
+                               Text="📱" 
+                               FontSize="24"
+                               VerticalOptions="Center" />
+                        <Label Grid.Row="0" Grid.Column="1" 
+                               Text="Phone" 
+                               FontSize="14" 
+                               TextColor="#6C757D" />
+                        <Label Grid.Row="1" Grid.Column="1" 
+                               Text="+1 (555) 123-4567" 
+                               FontSize="16" 
+                               FontAttributes="Bold" />
+                    </Grid>
+                </Border>
+
+                <Border Padding="15" 
+                        StrokeThickness="0"
+                        StrokeShape="RoundRectangle 12"
+                        BackgroundColor="White"
+                        Shadow="{Shadow Brush=Black, Opacity=0.1, Radius=8, Offset='0,2'}">
+                    <Grid ColumnDefinitions="Auto,*" 
+                          RowDefinitions="Auto,Auto"
+                          ColumnSpacing="10"
+                          RowSpacing="5">
+                        <Label Grid.Row="0" Grid.Column="0" 
+                               Grid.RowSpan="2"
+                               Text="📍" 
+                               FontSize="24"
+                               VerticalOptions="Center" />
+                        <Label Grid.Row="0" Grid.Column="1" 
+                               Text="Delivery Address" 
+                               FontSize="14" 
+                               TextColor="#6C757D" />
+                        <Label Grid.Row="1" Grid.Column="1" 
+                               Text="123 Main St, Apt 4B" 
+                               FontSize="16" 
+                               FontAttributes="Bold" 
+                               LineBreakMode="WordWrap" />
+                    </Grid>
+                </Border>
+                
+                <Button Text="Back"
+                        Command="{Binding GoBackCommand}"
+                        BackgroundColor="#6F42C1"
+                        TextColor="White"
+                        Margin="0,20,0,0"
+                        HeightRequest="50"
+                        CornerRadius="12" />
+                
+            </VerticalStackLayout>
+        </ScrollView>
+
+    </Grid>
+    
+</ContentPage>

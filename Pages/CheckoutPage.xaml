@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:FoodDelivery.ViewModels"
+             x:Class="FoodDelivery.Pages.CheckoutPage"
+             x:DataType="vm:CheckoutViewModel"
+             Title="Checkout">
+    
+    <Grid RowDefinitions="Auto,*,Auto">
+        
+        <!-- Header -->
+        <Border Grid.Row="0"
+                Padding="20"
+                StrokeThickness="0"
+                StrokeShape="RoundRectangle 0,0,20,20"
+                BackgroundColor="#28A745"
+                Margin="0,0,0,10"
+                Shadow="{Shadow Brush=Black, Opacity=0.15, Radius=10, Offset='0,2'}">
+            <VerticalStackLayout Spacing="5">
+                <Label Text="💳 Checkout" 
+                       FontSize="28" 
+                       FontAttributes="Bold"
+                       TextColor="White" />
+                <Label Text="Complete your order" 
+                       FontSize="14" 
+                       TextColor="White"
+                       Opacity="0.9" />
+            </VerticalStackLayout>
+        </Border>
+
+        <!-- Checkout Form -->
+        <ScrollView Grid.Row="1" Padding="20">
+            <VerticalStackLayout Spacing="20">
+                
+                <!-- Delivery Address -->
+                <Border Padding="15" 
+                        StrokeThickness="0"
+                        StrokeShape="RoundRectangle 12"
+                        BackgroundColor="White"
+                        Shadow="{Shadow Brush=Black, Opacity=0.1, Radius=8, Offset='0,2'}">
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="📍 Delivery Address" 
+                               FontSize="18" 
+                               FontAttributes="Bold" />
+                        <Entry Placeholder="Street Address" 
+                               Text="{Binding StreetAddress}"
+                               BackgroundColor="#F8F9FA" />
+                        <Entry Placeholder="Apartment, Suite, etc." 
+                               Text="{Binding Apartment}"
+                               BackgroundColor="#F8F9FA" />
+                        <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+                            <Entry Grid.Column="0" 
+                                   Placeholder="City" 
+                                   Text="{Binding City}"
+                                   BackgroundColor="#F8F9FA" />
+                            <Entry Grid.Column="1" 
+                                   Placeholder="ZIP" 
+                                   Text="{Binding ZipCode}"
+                                   BackgroundColor="#F8F9FA" />
+                        </Grid>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- Payment Method -->
+                <Border Padding="15" 
+                        StrokeThickness="0"
+                        StrokeShape="RoundRectangle 12"
+                        BackgroundColor="White"
+                        Shadow="{Shadow Brush=Black, Opacity=0.1, Radius=8, Offset='0,2'}">
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="💳 Payment Method" 
+                               FontSize="18" 
+                               FontAttributes="Bold" />
+                        
+                        <VerticalStackLayout Spacing="10" 
+                                             RadioButtonGroup.GroupName="PaymentMethod"
+                                             RadioButtonGroup.SelectedValue="{Binding SelectedPaymentMethod}">
+    
+                            <RadioButton Content="💳 Credit Card"
+                                         IsChecked="True" 
+                                         Value="CreditCard"
+                                         FontSize="16" />
+    
+                            <RadioButton Content="📱 Apple Pay"
+                                         Value="ApplePay"
+                                         FontSize="16" />
+    
+                            <RadioButton Content="💵 Cash on Delivery"
+                                         Value="CashOnDelivery"
+                                         FontSize="16" />
+    
+                        </VerticalStackLayout>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- Delivery Instructions -->
+                <Border Padding="15" 
+                        StrokeThickness="0"
+                        StrokeShape="RoundRectangle 12"
+                        BackgroundColor="White"
+                        Shadow="{Shadow Brush=Black, Opacity=0.1, Radius=8, Offset='0,2'}">
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="📝 Delivery Instructions" 
+                               FontSize="18" 
+                               FontAttributes="Bold" />
+                        <Editor Placeholder="Add any special instructions for the driver..."
+                                Text="{Binding DeliveryInstructions}"
+                                HeightRequest="100"
+                                BackgroundColor="#F8F9FA" />
+                    </VerticalStackLayout>
+                </Border>
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- Place Order Button -->
+        <Border Grid.Row="2"
+                Padding="20"
+                StrokeThickness="0"
+                StrokeShape="RoundRectangle 20,20,0,0"
+                BackgroundColor="White"
+                Margin="0,-10,0,0"
+                Shadow="{Shadow Brush=Black, Opacity=0.15, Radius=10, Offset='0,-2'}">
+            <Grid RowDefinitions="Auto,Auto" RowSpacing="15">
+                
+                <!-- Order Summary -->
+                <Border Grid.Row="0" 
+                        Padding="15" 
+                        StrokeThickness="0"
+                        StrokeShape="RoundRectangle 12"
+                        BackgroundColor="#F8F9FA">
+                    <VerticalStackLayout Spacing="8">
+                        <Grid ColumnDefinitions="*,Auto">
+                            <Label Grid.Column="0" Text="Subtotal" FontSize="14" />
+                            <Label Grid.Column="1" Text="{Binding Subtotal, StringFormat='${0:F2}'}" FontSize="14" FontAttributes="Bold" />
+                        </Grid>
+                        <Grid ColumnDefinitions="*,Auto">
+                            <Label Grid.Column="0" Text="Delivery Fee" FontSize="14" />
+                            <Label Grid.Column="1" Text="{Binding DeliveryFee, StringFormat='${0:F2}'}" FontSize="14" FontAttributes="Bold" />
+                        </Grid>
+                        <BoxView HeightRequest="1" Color="#E0E0E0" />
+                        <Grid ColumnDefinitions="*,Auto">
+                            <Label Grid.Column="0" Text="Total" FontSize="18" FontAttributes="Bold" />
+                            <Label Grid.Column="1" Text="{Binding Total, StringFormat='${0:F2}'}" FontSize="18" FontAttributes="Bold" TextColor="#28A745" />
+                        </Grid>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- Buttons -->
+                <Grid Grid.Row="1" ColumnDefinitions="*,*" ColumnSpacing="10">
+                    <Button Grid.Column="0"
+                            Text="Back"
+                            Command="{Binding GoBackCommand}"
+                            BackgroundColor="#6C757D"
+                            TextColor="White"
+                            HeightRequest="55"
+                            CornerRadius="12" />
+                    
+                    <Button Grid.Column="1"
+                            Text="Place Order"
+                            Command="{Binding PlaceOrderCommand}"
+                            BackgroundColor="#28A745"
+                            TextColor="White"
+                            FontAttributes="Bold"
+                            HeightRequest="55"
+                            CornerRadius="12" />
+                </Grid>
+
+            </Grid>
+        </Border>
+
+    </Grid>
+    
+</ContentPage>
