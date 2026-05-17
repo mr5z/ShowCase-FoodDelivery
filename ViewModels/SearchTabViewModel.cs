@@ -8,9 +8,6 @@ using MenuItem = FoodDelivery.Models.MenuItem;
 
 namespace FoodDelivery.ViewModels;
 
-/// <summary>
-/// Search tab - showcases TabViewModel with search functionality
-/// </summary>
 public partial class SearchTabViewModel(
     INavigationService navigationService,
     IRestaurantService restaurantService)
@@ -24,12 +21,6 @@ public partial class SearchTabViewModel(
     public ObservableCollection<MenuItem> SearchResults { get; } = [];
     public string TabTitle => "Search";
     public string TabIcon => "🔍";
-
-    protected override void OnTabSelected()
-    {
-        base.OnTabSelected();
-        System.Diagnostics.Debug.WriteLine("🔍 Search tab selected!");
-    }
 
     [RelayCommand]
     private void PerformSearch()
@@ -54,7 +45,6 @@ public partial class SearchTabViewModel(
     [RelayCommand]
     private async Task SelectItem(MenuItem item)
     {
-        // Showcases: Opening popup from tab
         var restaurant = _restaurantService.GetAllRestaurants()
             .First(r => r.MenuItems.Any(mi => mi.Id == item.Id));
         

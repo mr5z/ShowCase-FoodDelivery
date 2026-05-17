@@ -1,5 +1,4 @@
 using System.Collections.ObjectModel;
-using System.Diagnostics;
 using FoodDelivery.Models;
 using FoodDelivery.Services;
 using Nkraft.MvvmEssentials.ViewModels;
@@ -16,7 +15,6 @@ public class OrdersViewModel(IOrderHistoryService orderHistoryService) : PageVie
     {
         base.OnPageAppearing();
         LoadOrders();
-        Debug.WriteLine($"📋 Orders page appearing! Total orders: {Orders.Count}");
     }
 
     private void LoadOrders()

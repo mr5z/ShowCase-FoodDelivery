@@ -1,4 +1,4 @@
-using System.ComponentModel;
+using System.Diagnostics;
 using CommunityToolkit.Mvvm.Input;
 using FoodDelivery.Services;
 using Nkraft.MvvmEssentials.Services;
@@ -25,7 +25,7 @@ public partial class AddToCartViewModel(IPopupService popupService, ICartService
     {
         base.OnPageAppearing();
         UpdateTotalPrice();
-        System.Diagnostics.Debug.WriteLine($"🛒 Add to cart popup opened for: {Item.Name}");
+        Debug.WriteLine($"🛒 Add to cart popup opened for: {Item.Name}");
     }
 
     private void OnQuantityChanged(int value)

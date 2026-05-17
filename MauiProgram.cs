@@ -5,7 +5,6 @@ using FoodDelivery.Services;
 using FoodDelivery.ViewModels;
 using Microsoft.Extensions.Logging;
 using Mopups.Hosting;
-using Nkraft.MvvmEssentials;
 using Nkraft.MvvmEssentials.Extensions;
 using Nkraft.MvvmEssentials.Services;
 

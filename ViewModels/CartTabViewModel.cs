@@ -8,10 +8,6 @@ using Nkraft.MvvmEssentials.Extensions;
 
 namespace FoodDelivery.ViewModels;
 
-/// <summary>
-/// Cart tab - showcases TabViewModel with service integration
-/// Updates when items are added from other tabs
-/// </summary>
 public partial class CartTabViewModel : TabViewModel
 {
     private readonly INavigationService _navigationService;
@@ -84,7 +80,6 @@ public partial class CartTabViewModel : TabViewModel
         if (CartItems.Count == 0)
             return;
 
-        // Showcases: Navigation to checkout
         await _navigationService.NavigateAsync<CheckoutViewModel>();
     }
 

@@ -36,16 +36,4 @@ public partial class MenuViewModel(INavigationService navigationService) : Flyou
         await _navigationService.NavigateAsync<SettingsViewModel>();
         IsPresented = false;
     }
-
-    protected override void OnFlyoutOpened()
-    {
-        base.OnFlyoutOpened();
-        System.Diagnostics.Debug.WriteLine("📂 Flyout menu opened!");
-    }
-
-    protected override void OnFlyoutClosed()
-    {
-        base.OnFlyoutClosed();
-        System.Diagnostics.Debug.WriteLine("📂 Flyout menu closed!");
-    }
 }

@@ -1,18 +1,16 @@
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using CommunityToolkit.Mvvm.Input;
 using FoodDelivery.Models;
 using FoodDelivery.Services;
-using Nkraft.MvvmEssentials.Services;
-using Nkraft.MvvmEssentials.ViewModels;
 using Nkraft.MvvmEssentials.Extensions;
+using Nkraft.MvvmEssentials.Services;
 using Nkraft.MvvmEssentials.Services.Navigation;
+using Nkraft.MvvmEssentials.ViewModels;
 using MenuItem = FoodDelivery.Models.MenuItem;
 
 namespace FoodDelivery.ViewModels;
 
-/// <summary>
-/// Restaurant detail - showcases PageViewModel lifecycle and parameter receiving
-/// </summary>
 public partial class RestaurantDetailViewModel(
     INavigationService navigationService,
     IPopupService popupService,
@@ -29,12 +27,10 @@ public partial class RestaurantDetailViewModel(
 
     public ObservableCollection<MenuItem> MenuItems { get; } = [];
 
-    // Showcases: PageViewModel lifecycle - called once on first appearance
     protected override void OnInitialized()
     {
         base.OnInitialized();
         LoadRestaurant();
-        System.Diagnostics.Debug.WriteLine($"🏪 Restaurant detail initialized for ID: {RestaurantId}");
     }
 
     private void LoadRestaurant()
@@ -63,7 +59,7 @@ public partial class RestaurantDetailViewModel(
 
         if (result is { IsSuccess: true, Value: true })
         {
-            System.Diagnostics.Debug.WriteLine($"✅ Item added to cart: {item.Name}");
+            Debug.WriteLine($"✅ Item added to cart: {item.Name}");
         }
     }
 

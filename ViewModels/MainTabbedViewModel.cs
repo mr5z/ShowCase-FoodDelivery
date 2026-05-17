@@ -3,10 +3,6 @@ using Nkraft.MvvmEssentials.ViewModels;
 
 namespace FoodDelivery.ViewModels;
 
-/// <summary>
-/// Main tabbed view - showcases TabHostViewModel with 3 tabs
-/// This demonstrates the TabbedPage feature of MvvmEssentials
-/// </summary>
 public class MainTabbedViewModel(
     RestaurantsTabViewModel restaurantsTab,
     SearchTabViewModel searchTab,
