@@ -35,9 +35,9 @@ This project showcases real-world usage of **MvvmEssentials** - a lightweight MV
 
 <table>
   <tr>
-    <td><img src="screenshots/restaurants.png" width="250"/></td>
-    <td><img src="screenshots/restaurant-detail.png" width="250"/></td>
-    <td><img src="screenshots/add-to-cart-popup.png" width="250"/></td>
+    <td><img width="250" alt="restaurants" src="https://github.com/user-attachments/assets/f2faf36f-f561-4878-a37b-384007d9ddc1" /></td>
+    <td><img width="250" alt="restaurant-detail" src="https://github.com/user-attachments/assets/fbb66be6-9597-4b8a-a285-ebeafafba610" /></td>
+    <td><img width="250" alt="add-to-cart-popup" src="https://github.com/user-attachments/assets/3b3eca9a-a96d-48b1-b51a-fa18d9b99a41" /></td>
   </tr>
   <tr>
     <td align="center"><b>Restaurant List</b></td>
@@ -45,9 +45,12 @@ This project showcases real-world usage of **MvvmEssentials** - a lightweight MV
     <td align="center"><b>Add to Cart Popup</b></td>
   </tr>
   <tr>
-    <td><img src="screenshots/cart.png" width="250"/></td>
-    <td><img src="screenshots/checkout.png" width="250"/></td>
-    <td><img src="screenshots/orders.png" width="250"/></td>
+    <td><img width="250" alt="cart" src="https://github.com/user-attachments/assets/91abdb85-7c96-421a-b3ef-ecf5d9563273" />
+</td>
+    <td><img width="250" alt="checkout" src="https://github.com/user-attachments/assets/62dffdbc-5406-494a-a451-01e030cd7de3" />
+</td>
+    <td><img width="250" alt="orders" src="https://github.com/user-attachments/assets/c1e34f05-6599-46b4-b289-c8b64f6354a6" />
+</td>
   </tr>
   <tr>
     <td align="center"><b>Shopping Cart</b></td>
@@ -55,9 +58,12 @@ This project showcases real-world usage of **MvvmEssentials** - a lightweight MV
     <td align="center"><b>Order History</b></td>
   </tr>
   <tr>
-    <td><img src="screenshots/menu.png" width="250"/></td>
-    <td><img src="screenshots/settings.png" width="250"/></td>
-    <td><img src="screenshots/search.png" width="250"/></td>
+    <td><img width="250" alt="menu" src="https://github.com/user-attachments/assets/a7a200e8-0bf2-4c1c-85f1-4906f60fc40b" />
+</td>
+    <td><img width="250" alt="settings" src="https://github.com/user-attachments/assets/47893cf5-355d-4cb1-b7a9-244517d1e60e" />
+</td>
+    <td><img width="250" alt="search" src="https://github.com/user-attachments/assets/cc790d02-0f56-4816-b65d-240181a9e505" />
+</td>
   </tr>
   <tr>
     <td align="center"><b>Flyout Menu</b></td>
