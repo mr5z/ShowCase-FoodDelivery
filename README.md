@@ -205,6 +205,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Popups powered by [Mopups](https://github.com/LuckyDucko/Mopups)
 - MVVM tooling by [CommunityToolkit.Mvvm](https://github.com/CommunityToolkit/dotnet)
 - Property change weaving by [Fody.PropertyChanged](https://github.com/Fody/PropertyChanged)
+- Most of the development work was done with assistance from [Claude](https://claude.ai) by Anthropic
+
 
 ## 📚 Learn More
 
