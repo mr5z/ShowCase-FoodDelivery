@@ -167,9 +167,6 @@ public partial class RestaurantsTabViewModel(INavigationService navigationServic
 ### FlyoutPage with TabbedPage Detail
 The app demonstrates the complex scenario of a FlyoutPage containing a TabbedPage as its detail, with proper lifecycle event propagation through the `FlyoutDetailLifecycleBehavior`.
 
-### Original Detail Caching
-To work around MAUI's FlyoutPage bug, the NavigationService caches the original Detail page (MainTabbedPage) and restores it when navigating back to Home, preserving tab state and preventing unnecessary recreations.
-
 ### Popup with Results
 Shows how to present modal dialogs and handle user input:
 ```csharp
