@@ -99,7 +99,7 @@ The app demonstrates how MvvmEssentials handles the MAUI limitation where Flyout
 ### Prerequisites
 - .NET 9.0 SDK or later
 - Visual Studio 2022 or JetBrains Rider
-- Android SDK (for Android development)
+- Android SDK
 
 ### Installation
 
