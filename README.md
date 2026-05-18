@@ -31,6 +31,10 @@ This project showcases real-world usage of **MvvmEssentials** - a lightweight MV
 - ⚙️ Settings with preferences
 - 🎨 Modern UI with smooth animations
 
+## 🎬 Demo
+
+https://github.com/user-attachments/assets/2ae79515-f605-41d0-850a-2ac27e09a38e
+
 ## 📱 Screenshots
 
 <table>
