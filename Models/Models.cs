@@ -5,33 +5,33 @@ namespace FoodDelivery.Models;
 [AddINotifyPropertyChangedInterface]
 public sealed class Restaurant
 {
-    public int Id { get; set; }
-    public string Name { get; set; } = string.Empty;
-    public string Cuisine { get; set; } = string.Empty;
+    public required int Id { get; init; }
+    public required string Name { get; init; }
+    public required string Cuisine { get; init; }
     public double Rating { get; set; }
-    public string DeliveryTime { get; set; } = string.Empty;
-    public string ImageEmoji { get; set; } = string.Empty;
+    public required string DeliveryTime { get; init; }
+    public required string ImageEmoji { get; init; }
     public decimal MinOrder { get; set; }
     public decimal DeliveryFee { get; set; }
-    public List<MenuItem> MenuItems { get; set; } = [];
+    public List<MenuItem> MenuItems { get; init; } = [];
 }
 
 [AddINotifyPropertyChangedInterface]
 public sealed class MenuItem
 {
-    public int Id { get; set; }
-    public string Name { get; set; } = string.Empty;
-    public string Description { get; set; } = string.Empty;
+    public required int Id { get; init; }
+    public required string Name { get; init; }
+    public required string Description { get; init; }
     public decimal Price { get; set; }
-    public string ImageEmoji { get; set; } = string.Empty;
-    public string Category { get; set; } = string.Empty;
+    public required string ImageEmoji { get; init; }
+    public required string Category { get; init; }
     public bool IsPopular { get; set; }
 }
 
 [AddINotifyPropertyChangedInterface]
 public sealed class CartItem
 {
-    public MenuItem Item { get; set; } = null!;
+    public required MenuItem Item { get; init; }
     public int Quantity { get; set; }
     public decimal Total => Item.Price * Quantity;
 }
@@ -39,12 +39,12 @@ public sealed class CartItem
 [AddINotifyPropertyChangedInterface]
 public class Order
 {
-    public string OrderNumber { get; set; } = string.Empty;
+    public string? OrderNumber { get; set; }
     public DateTime OrderDate { get; set; }
-    public string Status { get; set; } = string.Empty;
+    public string Status { get; set; } = "Pending";
     public int ItemsCount { get; set; }
     public decimal Total { get; set; }
-    public string DeliveryAddress { get; set; } = string.Empty;
-    public string PaymentMethod { get; set; } = string.Empty;
-    public string DeliveryInstructions { get; set; } = string.Empty;
+    public required string DeliveryAddress { get; set; }
+    public required string PaymentMethod { get; set; }
+    public required string DeliveryInstructions { get; set; }
 }

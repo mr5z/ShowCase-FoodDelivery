@@ -4,6 +4,7 @@ using FoodDelivery.Models;
 using FoodDelivery.Services;
 using Nkraft.MvvmEssentials.Extensions;
 using Nkraft.MvvmEssentials.Services;
+using Nkraft.MvvmEssentials.Services.Navigation;
 using Nkraft.MvvmEssentials.ViewModels;
 
 namespace FoodDelivery.ViewModels.Tabs;
@@ -12,6 +13,7 @@ public partial class CartTabViewModel : TabViewModel
 {
     private readonly INavigationService _navigationService;
     private readonly ICartService _cartService;
+    private readonly IPopupService _popupService;
 
     public decimal Subtotal { get; set; }
 
@@ -23,10 +25,12 @@ public partial class CartTabViewModel : TabViewModel
 
     public CartTabViewModel(
         INavigationService navigationService,
-        ICartService cartService)
+        ICartService cartService,
+        IPopupService popupService)
     {
         _navigationService = navigationService;
         _cartService = cartService;
+        _popupService = popupService;
 
         // Listen to cart changes from other parts of the app
         _cartService.CartUpdated += OnCartUpdated;
@@ -36,7 +40,6 @@ public partial class CartTabViewModel : TabViewModel
     {
         base.OnTabSelected();
         RefreshCart();
-        System.Diagnostics.Debug.WriteLine("🛒 Cart tab selected!");
     }
 
     private void OnCartUpdated(object? sender, EventArgs e)
@@ -63,9 +66,22 @@ public partial class CartTabViewModel : TabViewModel
     }
 
     [RelayCommand]
-    private void DecreaseQuantity(CartItem cartItem)
+    private async Task DecreaseQuantity(CartItem cartItem)
     {
-        _cartService.UpdateQuantity(cartItem.Item, cartItem.Quantity - 1);
+        var willBeRemoved = cartItem.Quantity - 1 <= 0;
+        if (willBeRemoved)
+        {
+            var parameters = new NavigationParameters { { "Item", cartItem.Item } };
+            var result = await _popupService.PresentAsync<ConfirmRemoveItemViewModel, bool>(parameters);
+            if (result.TryGetValue(out var confirmed) && confirmed)
+            {
+                _cartService.UpdateQuantity(cartItem.Item, cartItem.Quantity - 1);
+            }
+        }
+        else
+        {
+            _cartService.UpdateQuantity(cartItem.Item, cartItem.Quantity - 1);
+        }
     }
 
     [RelayCommand]

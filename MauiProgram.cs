@@ -43,6 +43,7 @@ public static class MauiProgram
  
                 // Popup - showcases PopupViewModel
                 registry.MapPage<AddToCartPopup, AddToCartViewModel>();
+                registry.MapPage<ConfirmRemoveItemPopup, ConfirmRemoveItemViewModel>();
             })
             .ConfigureFonts(fonts =>
             {
