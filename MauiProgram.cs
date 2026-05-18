@@ -8,8 +8,8 @@ using FoodDelivery.ViewModels.Menus;
 using FoodDelivery.ViewModels.Tabs;
 using Microsoft.Extensions.Logging;
 using Mopups.Hosting;
+using Nkraft.MvvmEssentials;
 using Nkraft.MvvmEssentials.Extensions;
-using Nkraft.MvvmEssentials.Services;
 
 namespace FoodDelivery;
 
@@ -50,7 +50,7 @@ public static class MauiProgram
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
             });
 
-        builder.Services.AddTransient<IAppStartup, GeneratedAppStartup>();
+        builder.Services.AddDiscoveredAppStartup();
         builder.Services.AddSingleton<IRestaurantService, RestaurantService>();
         builder.Services.AddSingleton<ICartService, CartService>();
         builder.Services.AddSingleton<IOrderHistoryService, OrderHistoryService>();
@@ -62,16 +62,16 @@ public static class MauiProgram
         return builder.Build();
     }
     
-    internal sealed class GeneratedAppStartup(INavigationService navigationService) : IAppStartup
-    {
-        private readonly INavigationService _navigationService = navigationService;
-
-        public async Task OnInitializedAsync()
-        {
-            await _navigationService
-                .Absolute(withNavigation: false)
-                .Push<MainHostViewModel>()
-                .NavigateAsync();
-        }
-    }
+    // internal sealed class GeneratedAppStartup(INavigationService navigationService) : IAppStartup
+    // {
+    //     private readonly INavigationService _navigationService = navigationService;
+    //
+    //     public async Task OnInitializedAsync()
+    //     {
+    //         await _navigationService
+    //             .Absolute(withNavigation: false)
+    //             .Push<MainHostViewModel>()
+    //             .NavigateAsync();
+    //     }
+    // }
 }
