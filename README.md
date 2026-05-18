@@ -166,9 +166,6 @@ The app demonstrates the complex scenario of a FlyoutPage containing a TabbedPag
 ### Original Detail Caching
 To work around MAUI's FlyoutPage bug, the NavigationService caches the original Detail page (MainTabbedPage) and restores it when navigating back to Home, preserving tab state and preventing unnecessary recreations.
 
-### Cart Service
-Singleton service managing cart state across the app. Cart items recalculate totals automatically via Fody.PropertyChanged.
-
 ### Popup with Results
 Shows how to present modal dialogs and handle user input:
 ```csharp
@@ -183,13 +180,6 @@ if (result.TryGetValue(out var cartItem))
     _cartService.AddItem(cartItem);
 }
 ```
-
-### Handler Pattern for Navigation
-The NavigationService uses a strategy pattern with dedicated handlers for each page type:
-- `NavigationPageHandler` - Push navigation
-- `TabbedPageHandler` - Tab-aware navigation  
-- `FlyoutPageHandler` - Detail management with caching
-- `UnsupportedPageHandler` - Fallback error handling
 
 ### Property Change Weaving
 Uses Fody.PropertyChanged (`[AddINotifyPropertyChangedInterface]`) for automatic INotifyPropertyChanged implementation, resulting in cleaner ViewModels without boilerplate.
