@@ -9,24 +9,19 @@
     <Grid RowDefinitions="Auto,*">
         
         <!-- Header -->
-        <Border Grid.Row="0"
-                Padding="20"
-                StrokeThickness="0"
-                StrokeShape="RoundRectangle 0,0,20,20"
-                BackgroundColor="#007BFF"
-                Margin="0,0,0,10"
-                Shadow="{Shadow Brush=Black, Opacity=0.15, Radius=10, Offset='0,2'}">
-            <VerticalStackLayout Spacing="5">
-                <Label Text="📋 My Orders" 
-                       FontSize="28" 
-                       FontAttributes="Bold"
-                       TextColor="White" />
-                <Label Text="View your order history" 
-                       FontSize="14" 
-                       TextColor="White"
-                       Opacity="0.9" />
-            </VerticalStackLayout>
-        </Border>
+        <VerticalStackLayout Grid.Row="0" 
+                             BackgroundColor="#007BFF"
+                             Padding="20" 
+                             Spacing="5">
+            <Label Text="📋 My Orders" 
+                   FontSize="28" 
+                   FontAttributes="Bold"
+                   TextColor="White" />
+            <Label Text="View your order history" 
+                   FontSize="14" 
+                   TextColor="White"
+                   Opacity="0.9" />
+        </VerticalStackLayout>
 
         <!-- Orders List -->
         <CollectionView Grid.Row="1"

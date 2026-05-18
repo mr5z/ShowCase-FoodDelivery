@@ -9,23 +9,19 @@
     <Grid RowDefinitions="Auto,*">
         
         <!-- Header -->
-        <Frame Grid.Row="0"
-               Padding="20"
-               CornerRadius="0,0,20,20"
-               HasShadow="True"
-               BackgroundColor="#17A2B8"
-               Margin="0,0,0,10">
-            <VerticalStackLayout Spacing="5">
-                <Label Text="⚙️ Settings" 
-                       FontSize="28" 
-                       FontAttributes="Bold"
-                       TextColor="White" />
-                <Label Text="Customize your app experience" 
-                       FontSize="14" 
-                       TextColor="White"
-                       Opacity="0.9" />
-            </VerticalStackLayout>
-        </Frame>
+        <VerticalStackLayout Grid.Row="0" 
+                             Spacing="5" 
+                             Padding="20" 
+                             BackgroundColor="#17A2B8">
+            <Label Text="⚙️ Settings" 
+                   FontSize="28" 
+                   FontAttributes="Bold"
+                   TextColor="White" />
+            <Label Text="Customize your app experience" 
+                   FontSize="14" 
+                   TextColor="White"
+                   Opacity="0.9" />
+        </VerticalStackLayout>
 
         <!-- Settings List -->
         <ScrollView Grid.Row="1" Padding="20">
@@ -78,14 +74,6 @@
                         <Label Grid.Column="2" Text="›" FontSize="32" TextColor="#CED4DA" VerticalOptions="Center" />
                     </Grid>
                 </Frame>
-                
-                <Button Text="Back"
-                        Command="{Binding GoBackCommand}"
-                        BackgroundColor="#17A2B8"
-                        TextColor="White"
-                        Margin="0,20,0,0"
-                        HeightRequest="50"
-                        CornerRadius="12" />
                 
             </VerticalStackLayout>
         </ScrollView>

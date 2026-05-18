@@ -8,25 +8,50 @@
             x:DataType="vm:MainTabbedViewModel"
             x:Class="FoodDelivery.Pages.Menus.MainTabbedPage"
             android:TabbedPage.ToolbarPlacement="Bottom"
+            BarBackgroundColor="White"
+            BarTextColor="#FF6B6B"
+            SelectedTabColor="#FF6B6B"
+            UnselectedTabColor="#999999"
             Title="Food Delivery">
     
     <TabbedPage.Behaviors>
         <behaviors:TabSelectionBehavior />
     </TabbedPage.Behaviors>
 
-    <NavigationPage Title="Restaurants" IconImageSource="restaurant.png">
+    <NavigationPage Title="Restaurants">
+        <NavigationPage.IconImageSource>
+            <FontImageSource 
+                Glyph="🏪" 
+                FontFamily="SegoeUIEmoji"
+                Size="28"
+                Color="{AppThemeBinding Light=#FF6B6B, Dark=#FF6B6B}" />
+        </NavigationPage.IconImageSource>
         <x:Arguments>
             <pages:RestaurantsTabPage BindingContext="{Binding RestaurantsTabViewModel}" />
         </x:Arguments>
     </NavigationPage>
 
-    <NavigationPage Title="Search" IconImageSource="search.png">
+    <NavigationPage Title="Search">
+        <NavigationPage.IconImageSource>
+            <FontImageSource 
+                Glyph="🔍" 
+                FontFamily="SegoeUIEmoji"
+                Size="28"
+                Color="{AppThemeBinding Light=#FF6B6B, Dark=#FF6B6B}" />
+        </NavigationPage.IconImageSource>
         <x:Arguments>
             <pages:SearchTabPage BindingContext="{Binding SearchTabViewModel}" />
         </x:Arguments>
     </NavigationPage>
 
-    <NavigationPage Title="Cart" IconImageSource="cart.png">
+    <NavigationPage Title="Cart">
+        <NavigationPage.IconImageSource>
+            <FontImageSource 
+                Glyph="🛒" 
+                FontFamily="SegoeUIEmoji"
+                Size="28"
+                Color="{AppThemeBinding Light=#FF6B6B, Dark=#FF6B6B}" />
+        </NavigationPage.IconImageSource>
         <x:Arguments>
             <pages:CartTabPage BindingContext="{Binding CartTabViewModel}" />
         </x:Arguments>

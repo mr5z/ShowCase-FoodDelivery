@@ -36,7 +36,7 @@ public partial class AddToCartViewModel(IPopupService popupService, ICartService
         if (Quantity < 99)
         {
             Quantity++;
-            UpdateTotalPrice();            
+            UpdateTotalPrice();
         }
     }
 

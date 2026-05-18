@@ -6,7 +6,7 @@ namespace FoodDelivery.Services;
 public interface ICartService
 {
     event EventHandler? CartUpdated;
-    List<CartItem> GetCartItems();
+    IReadOnlyCollection<CartItem> GetCartItems();
     void AddItem(MenuItem item);
     void RemoveItem(MenuItem item);
     void UpdateQuantity(MenuItem item, int quantity);
@@ -21,7 +21,7 @@ public class CartService : ICartService
 
     public event EventHandler? CartUpdated;
 
-    public List<CartItem> GetCartItems() => _cartItems.ToList();
+    public IReadOnlyCollection<CartItem> GetCartItems() => _cartItems;
 
     public void AddItem(MenuItem item)
     {

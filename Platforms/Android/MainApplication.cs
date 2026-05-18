@@ -4,12 +4,13 @@ using Android.Runtime;
 namespace FoodDelivery;
 
 [Application]
-public class MainApplication : MauiApplication
+public class MainApplication(IntPtr handle, JniHandleOwnership ownership) : MauiApplication(handle, ownership)
 {
-    public MainApplication(IntPtr handle, JniHandleOwnership ownership)
-        : base(handle, ownership)
-    {
-    }
-
     protected override MauiApp CreateMauiApp() => MauiProgram.CreateMauiApp();
+    
+    public override void OnCreate()
+    {
+        base.OnCreate();
+        Console.WriteLine("Just log something here, to make sure it prints");
+    }
 }

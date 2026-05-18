@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:FoodDelivery.ViewModels.Tabs"
+             xmlns:models="clr-namespace:FoodDelivery.Models"
              x:Class="FoodDelivery.Pages.Tabs.RestaurantsTabPage"
              x:DataType="vm:RestaurantsTabViewModel"
              Title="{Binding TabTitle}"
@@ -28,17 +29,25 @@
                        ItemsSource="{Binding Restaurants}"
                        Margin="10,10,10,10">
             <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Frame Padding="15" 
+                <DataTemplate x:DataType="models:Restaurant">
+                    <Border Padding="15" 
                            Margin="5,5"
-                           CornerRadius="12"
-                           HasShadow="True"
+                           StrokeThickness="0"
                            BackgroundColor="White">
-                        <Frame.GestureRecognizers>
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="12" />
+                        </Border.StrokeShape>
+                        <Border.Shadow>
+                            <Shadow Brush="Black"
+                                   Offset="0,2"
+                                   Radius="8"
+                                   Opacity="0.1" />
+                        </Border.Shadow>
+                        <Border.GestureRecognizers>
                             <TapGestureRecognizer 
-                                Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.SelectRestaurantCommand}"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type vm:RestaurantsTabViewModel}}, Path=SelectRestaurantCommand}"
                                 CommandParameter="{Binding .}" />
-                        </Frame.GestureRecognizers>
+                        </Border.GestureRecognizers>
                         
                         <Grid ColumnDefinitions="60,*,Auto" RowDefinitions="Auto,Auto,Auto">
                             
@@ -86,7 +95,7 @@
                                    VerticalOptions="Center" />
                             
                         </Grid>
-                    </Frame>
+                    </Border>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
