@@ -60,4 +60,59 @@
       <ProjectReference Include="..\..\MvvmEssentials\Source\Nkraft.MvvmEssentials.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <MauiXaml Update="Pages\Tabs\CartTabPage.xaml">
+        <SubType>Designer</SubType>
+      </MauiXaml>
+      <MauiXaml Update="Pages\Tabs\RestaurantsTabPage.xaml">
+        <SubType>Designer</SubType>
+      </MauiXaml>
+      <MauiXaml Update="Pages\Tabs\SearchTabPage.xaml">
+        <SubType>Designer</SubType>
+      </MauiXaml>
+      <MauiXaml Update="Pages\Menus\MainTabbedPage.xaml">
+        <SubType>Designer</SubType>
+      </MauiXaml>
+      <MauiXaml Update="Pages\Menus\OrdersPage.xaml">
+        <SubType>Designer</SubType>
+      </MauiXaml>
+      <MauiXaml Update="Pages\Menus\ProfilePage.xaml">
+        <SubType>Designer</SubType>
+      </MauiXaml>
+      <MauiXaml Update="Pages\Menus\SettingsPage.xaml">
+        <SubType>Designer</SubType>
+      </MauiXaml>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Pages\Tabs\CartTabPage.xaml.cs">
+        <DependentUpon>CartTabPage.xaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+      <Compile Update="Pages\Tabs\RestaurantsTabPage.xaml.cs">
+        <DependentUpon>RestaurantsTabPage.xaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+      <Compile Update="Pages\Tabs\SearchTabPage.xaml.cs">
+        <DependentUpon>SearchTabPage.xaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+      <Compile Update="Pages\Menus\MainTabbedPage.xaml.cs">
+        <DependentUpon>MainTabbedPage.xaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+      <Compile Update="Pages\Menus\OrdersPage.xaml.cs">
+        <DependentUpon>OrdersPage.xaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+      <Compile Update="Pages\Menus\ProfilePage.xaml.cs">
+        <DependentUpon>ProfilePage.xaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+      <Compile Update="Pages\Menus\SettingsPage.xaml.cs">
+        <DependentUpon>SettingsPage.xaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+    </ItemGroup>
+
 </Project>

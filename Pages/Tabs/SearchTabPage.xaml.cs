@@ -1,4 +1,4 @@
-namespace FoodDelivery.Pages;
+namespace FoodDelivery.Pages.Tabs;
 
 public partial class SearchTabPage
 {

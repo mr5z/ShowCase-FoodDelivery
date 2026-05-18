@@ -3,7 +3,7 @@ using FoodDelivery.Models;
 using FoodDelivery.Services;
 using Nkraft.MvvmEssentials.ViewModels;
 
-namespace FoodDelivery.ViewModels;
+namespace FoodDelivery.ViewModels.Menus;
 
 public class OrdersViewModel(IOrderHistoryService orderHistoryService) : PageViewModel
 {

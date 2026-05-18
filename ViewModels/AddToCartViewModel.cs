@@ -1,4 +1,3 @@
-using System.Diagnostics;
 using CommunityToolkit.Mvvm.Input;
 using FoodDelivery.Services;
 using Nkraft.MvvmEssentials.Services;
@@ -20,16 +19,9 @@ public partial class AddToCartViewModel(IPopupService popupService, ICartService
 
     public decimal TotalPrice { get; set; }
 
-    // Showcases: PopupViewModel lifecycle
     protected override void OnPageAppearing()
     {
         base.OnPageAppearing();
-        UpdateTotalPrice();
-        Debug.WriteLine($"🛒 Add to cart popup opened for: {Item.Name}");
-    }
-
-    private void OnQuantityChanged(int value)
-    {
         UpdateTotalPrice();
     }
 
@@ -67,14 +59,12 @@ public partial class AddToCartViewModel(IPopupService popupService, ICartService
             _cartService.AddItem(Item);
         }
 
-        // Showcases: Closing popup with result = true (item was added)
         await Dismiss(true);
     }
 
     [RelayCommand]
     private async Task Cancel()
     {
-        // Showcases: Closing popup with result = false (cancelled)
         await Dismiss(false);
     }
 }

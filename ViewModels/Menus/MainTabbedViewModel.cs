@@ -1,7 +1,8 @@
+using FoodDelivery.ViewModels.Tabs;
 using Nkraft.MvvmEssentials.Services.Navigation;
 using Nkraft.MvvmEssentials.ViewModels;
 
-namespace FoodDelivery.ViewModels;
+namespace FoodDelivery.ViewModels.Menus;
 
 public class MainTabbedViewModel(
     RestaurantsTabViewModel restaurantsTab,

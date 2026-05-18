@@ -1,8 +1,11 @@
 ﻿using System.Reflection;
 using CommunityToolkit.Maui;
 using FoodDelivery.Pages;
+using FoodDelivery.Pages.Menus;
 using FoodDelivery.Services;
 using FoodDelivery.ViewModels;
+using FoodDelivery.ViewModels.Menus;
+using FoodDelivery.ViewModels.Tabs;
 using Microsoft.Extensions.Logging;
 using Mopups.Hosting;
 using Nkraft.MvvmEssentials.Extensions;

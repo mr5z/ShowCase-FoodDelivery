@@ -3,10 +3,10 @@
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
             xmlns:behaviors="clr-namespace:Nkraft.MvvmEssentials.Behaviors;assembly=Nkraft.MvvmEssentials"
-            xmlns:local="clr-namespace:FoodDelivery.Pages"
-            xmlns:vm="clr-namespace:FoodDelivery.ViewModels"
+            xmlns:vm="clr-namespace:FoodDelivery.ViewModels.Menus"
+            xmlns:pages="clr-namespace:FoodDelivery.Pages.Tabs"
             x:DataType="vm:MainTabbedViewModel"
-            x:Class="FoodDelivery.Pages.MainTabbedPage"
+            x:Class="FoodDelivery.Pages.Menus.MainTabbedPage"
             android:TabbedPage.ToolbarPlacement="Bottom"
             Title="Food Delivery">
     
@@ -16,19 +16,19 @@
 
     <NavigationPage Title="Restaurants" IconImageSource="restaurant.png">
         <x:Arguments>
-            <local:RestaurantsTabPage BindingContext="{Binding RestaurantsTabViewModel}" />
+            <pages:RestaurantsTabPage BindingContext="{Binding RestaurantsTabViewModel}" />
         </x:Arguments>
     </NavigationPage>
 
     <NavigationPage Title="Search" IconImageSource="search.png">
         <x:Arguments>
-            <local:SearchTabPage BindingContext="{Binding SearchTabViewModel}" />
+            <pages:SearchTabPage BindingContext="{Binding SearchTabViewModel}" />
         </x:Arguments>
     </NavigationPage>
 
     <NavigationPage Title="Cart" IconImageSource="cart.png">
         <x:Arguments>
-            <local:CartTabPage BindingContext="{Binding CartTabViewModel}" />
+            <pages:CartTabPage BindingContext="{Binding CartTabViewModel}" />
         </x:Arguments>
     </NavigationPage>
 

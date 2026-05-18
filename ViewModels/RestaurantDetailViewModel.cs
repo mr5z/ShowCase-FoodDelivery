@@ -49,7 +49,6 @@ public partial class RestaurantDetailViewModel(
     [RelayCommand]
     private async Task SelectMenuItem(MenuItem item)
     {
-        // Showcases: Opening popup and getting result
         var parameters = new NavigationParameters
         {
             { "RestaurantId", RestaurantId },

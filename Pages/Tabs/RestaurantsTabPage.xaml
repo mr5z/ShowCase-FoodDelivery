@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="FoodDelivery.Pages.RestaurantsTabPage"
+             xmlns:vm="clr-namespace:FoodDelivery.ViewModels.Tabs"
+             x:Class="FoodDelivery.Pages.Tabs.RestaurantsTabPage"
+             x:DataType="vm:RestaurantsTabViewModel"
              Title="{Binding TabTitle}"
              IconImageSource="🏪">
     

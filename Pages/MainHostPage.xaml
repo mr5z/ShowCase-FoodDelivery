@@ -4,6 +4,7 @@
             xmlns:behaviors="clr-namespace:Nkraft.MvvmEssentials.Behaviors;assembly=Nkraft.MvvmEssentials"
             xmlns:vm="clr-namespace:FoodDelivery.ViewModels"
             xmlns:pages="clr-namespace:FoodDelivery.Pages"
+            xmlns:menus="clr-namespace:FoodDelivery.Pages.Menus"
             x:DataType="vm:MainHostViewModel"
             x:Class="FoodDelivery.Pages.MainHostPage"
             Title="Food Delivery">
@@ -19,7 +20,7 @@
     </FlyoutPage.Flyout>
     
     <FlyoutPage.Detail>
-        <pages:MainTabbedPage BindingContext="{Binding DetailViewModel}" />
+        <menus:MainTabbedPage BindingContext="{Binding DetailViewModel}" />
     </FlyoutPage.Detail>
 
 </FlyoutPage>

@@ -1,12 +1,12 @@
 using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.Input;
 using FoodDelivery.Services;
+using Nkraft.MvvmEssentials.Extensions;
 using Nkraft.MvvmEssentials.Services;
 using Nkraft.MvvmEssentials.ViewModels;
-using Nkraft.MvvmEssentials.Extensions;
 using MenuItem = FoodDelivery.Models.MenuItem;
 
-namespace FoodDelivery.ViewModels;
+namespace FoodDelivery.ViewModels.Tabs;
 
 public partial class SearchTabViewModel(
     INavigationService navigationService,
