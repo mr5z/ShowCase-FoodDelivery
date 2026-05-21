@@ -2,7 +2,7 @@ using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.Input;
 using FoodDelivery.Models;
 using FoodDelivery.Services;
-using Nkraft.MvvmEssentials.Extensions;
+using Nkraft.MvvmEssentials;
 using Nkraft.MvvmEssentials.Services;
 using Nkraft.MvvmEssentials.ViewModels;
 

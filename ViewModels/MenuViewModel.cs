@@ -2,7 +2,6 @@ using CommunityToolkit.Mvvm.Input;
 using FoodDelivery.ViewModels.Menus;
 using Nkraft.MvvmEssentials.Services;
 using Nkraft.MvvmEssentials.ViewModels;
-using Nkraft.MvvmEssentials.Extensions;
 
 namespace FoodDelivery.ViewModels;
 
@@ -13,28 +12,28 @@ public partial class MenuViewModel(INavigationService navigationService) : Flyou
     [RelayCommand]
     private async Task NavigateToHome()
     {
-        await _navigationService.NavigateAsync<MainTabbedViewModel>();
+        await ReplaceDetailAsync<MainTabbedViewModel>(_navigationService);
         IsPresented = false;
     }
 
     [RelayCommand]
     private async Task NavigateToOrders()
     {
-        await _navigationService.NavigateAsync<OrdersViewModel>();
+        await ReplaceDetailAsync<OrdersViewModel>(_navigationService);
         IsPresented = false;
     }
 
     [RelayCommand]
     private async Task NavigateToProfile()
     {
-        await _navigationService.NavigateAsync<ProfileViewModel>();
+        await ReplaceDetailAsync<ProfileViewModel>(_navigationService);
         IsPresented = false;
     }
 
     [RelayCommand]
     private async Task NavigateToSettings()
     {
-        await _navigationService.NavigateAsync<SettingsViewModel>();
+        await ReplaceDetailAsync<SettingsViewModel>(_navigationService);
         IsPresented = false;
     }
 }

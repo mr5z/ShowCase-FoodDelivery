@@ -1,7 +1,7 @@
 using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.Input;
 using FoodDelivery.Services;
-using Nkraft.MvvmEssentials.Extensions;
+using Nkraft.MvvmEssentials;
 using Nkraft.MvvmEssentials.Services;
 using Nkraft.MvvmEssentials.ViewModels;
 using MenuItem = FoodDelivery.Models.MenuItem;
