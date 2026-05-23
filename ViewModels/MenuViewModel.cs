@@ -13,27 +13,23 @@ public partial class MenuViewModel(INavigationService navigationService) : Flyou
     private async Task NavigateToHome()
     {
         await ReplaceDetailAsync<MainTabbedViewModel>(_navigationService);
-        IsPresented = false;
     }
 
     [RelayCommand]
     private async Task NavigateToOrders()
     {
         await ReplaceDetailAsync<OrdersViewModel>(_navigationService);
-        IsPresented = false;
     }
 
     [RelayCommand]
     private async Task NavigateToProfile()
     {
         await ReplaceDetailAsync<ProfileViewModel>(_navigationService);
-        IsPresented = false;
     }
 
     [RelayCommand]
     private async Task NavigateToSettings()
     {
         await ReplaceDetailAsync<SettingsViewModel>(_navigationService);
-        IsPresented = false;
     }
 }
