@@ -9,7 +9,7 @@ using FoodDelivery.ViewModels.Tabs;
 using Microsoft.Extensions.Logging;
 using Mopups.Hosting;
 using Nkraft.MvvmEssentials;
-using Nkraft.MvvmEssentials.Extensions;
+using Nkraft.MvvmEssentials.Services;
 
 namespace FoodDelivery;
 
@@ -52,6 +52,7 @@ public static class MauiProgram
             });
 
         builder.Services.AddDiscoveredAppStartup();
+        // builder.Services.AddSingleton<IAppStartup, GeneratedAppStartup>();
         builder.Services.AddSingleton<IRestaurantService, RestaurantService>();
         builder.Services.AddSingleton<ICartService, CartService>();
         builder.Services.AddSingleton<IOrderHistoryService, OrderHistoryService>();
