@@ -22,13 +22,13 @@ public static class MauiProgram
             .UseMauiApp<App>()
             .UseMauiCommunityToolkit()
             .ConfigureMopups()
-            .ConfigureMvvmEssentials(Assembly.GetExecutingAssembly(), registry =>
+            .ConfigureMvvmEssentials(registry =>
             {
                 // Main FlyoutPage setup - showcases FlyoutHostViewModel
                 registry
                     .MapPage<MainHostPage, MainHostViewModel>(isInitial: true)
                         .RegisterPage<MenuViewModel>()
-                        .RegisterPage<MainTabbedViewModel>()
+                        .MapPage<MainTabbedPage, MainTabbedViewModel>() // required for initial detail page
                             .RegisterPage<RestaurantsTabViewModel>()
                             .RegisterPage<SearchTabViewModel>()
                             .RegisterPage<CartTabViewModel>();
