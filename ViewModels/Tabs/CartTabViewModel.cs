@@ -71,8 +71,7 @@ public partial class CartTabViewModel : TabViewModel
         var willBeRemoved = cartItem.Quantity - 1 <= 0;
         if (willBeRemoved)
         {
-            var parameters = new NavigationParameters { { "Item", cartItem.Item } };
-            var result = await _popupService.PresentAsync<ConfirmRemoveItemViewModel, bool>(parameters);
+            var result = await _popupService.PresentAsync(ConfirmRemoveItemViewModel.With(item: cartItem.Item));
             if (result.TryGetValue(out var confirmed) && confirmed)
             {
                 _cartService.UpdateQuantity(cartItem.Item, cartItem.Quantity - 1);

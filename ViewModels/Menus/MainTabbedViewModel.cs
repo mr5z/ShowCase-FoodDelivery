@@ -1,5 +1,5 @@
 using FoodDelivery.ViewModels.Tabs;
-using Nkraft.MvvmEssentials.Services.Navigation;
+using Nkraft.MvvmEssentials.Services.FlyoutPages;
 using Nkraft.MvvmEssentials.ViewModels;
 
 namespace FoodDelivery.ViewModels.Menus;
@@ -9,14 +9,6 @@ public class MainTabbedViewModel(
     SearchTabViewModel searchTab,
     CartTabViewModel cartTab) : TabHostViewModel, IFlyoutComponent
 {
-    protected override TabViewModel[] Tabs { get; } = [restaurantsTab, searchTab, cartTab];
-
-    public RestaurantsTabViewModel RestaurantsTabViewModel { get; } = restaurantsTab;
-
-    public SearchTabViewModel SearchTabViewModel { get;  } = searchTab;
-
-    public CartTabViewModel CartTabViewModel { get; } = cartTab;
-    
     void IFlyoutComponent.OnFlyoutOpened()
     {
         
@@ -36,4 +28,19 @@ public class MainTabbedViewModel(
     {
         return Task.CompletedTask;
     }
+
+    protected override void OnDispose()
+    {
+        base.OnDispose();
+        
+        Console.WriteLine("MainTabbedViewModel.OnDispose()");
+    }
+
+    protected override TabViewModel[] Tabs => [restaurantsTab, searchTab, cartTab];
+
+    public RestaurantsTabViewModel RestaurantsTabViewModel => restaurantsTab;
+
+    public SearchTabViewModel SearchTabViewModel => searchTab;
+
+    public CartTabViewModel CartTabViewModel => cartTab;
 }

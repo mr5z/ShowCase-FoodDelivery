@@ -1,5 +1,6 @@
 using CommunityToolkit.Mvvm.Input;
 using FoodDelivery.Services;
+using Nkraft.MvvmEssentials.Attributes;
 using Nkraft.MvvmEssentials.Services;
 using Nkraft.MvvmEssentials.ViewModels;
 using MenuItem = FoodDelivery.Models.MenuItem;
@@ -11,8 +12,10 @@ public partial class AddToCartViewModel(IPopupService popupService, ICartService
 {
     private readonly ICartService _cartService = cartService;
 
+    [NavigationParameter]
     public MenuItem Item { get; set; } = null!;
 
+    [NavigationParameter]
     public int RestaurantId { get; set; }
 
     public int Quantity { get; set; } = 1;

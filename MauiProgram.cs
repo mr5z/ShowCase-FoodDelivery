@@ -1,5 +1,4 @@
-﻿using System.Reflection;
-using CommunityToolkit.Maui;
+﻿using CommunityToolkit.Maui;
 using FoodDelivery.Pages;
 using FoodDelivery.Pages.Menus;
 using FoodDelivery.Services;
@@ -64,16 +63,16 @@ public static class MauiProgram
         return builder.Build();
     }
     
-    // internal sealed class GeneratedAppStartup(INavigationService navigationService) : IAppStartup
-    // {
-    //     private readonly INavigationService _navigationService = navigationService;
-    //
-    //     public async Task OnInitializedAsync()
-    //     {
-    //         await _navigationService
-    //             .Absolute(withNavigation: false)
-    //             .Push<MainHostViewModel>()
-    //             .NavigateAsync();
-    //     }
-    // }
+    internal sealed class GeneratedAppStartup(INavigationService navigationService) : IAppStartup
+    {
+        private readonly INavigationService _navigationService = navigationService;
+    
+        public async Task OnInitializedAsync()
+        {
+            await _navigationService
+                .Absolute(withNavigation: false)
+                .Push<MainHostViewModel>()
+                .NavigateAsync();
+        }
+    }
 }

@@ -38,9 +38,6 @@ public partial class RestaurantsTabViewModel(
     [RelayCommand]
     private async Task SelectRestaurant(Restaurant restaurant)
     {
-        await _navigationService.NavigateAsync<RestaurantDetailViewModel, object>(new
-        {
-            RestaurantId = restaurant.Id
-        });
+        await _navigationService.NavigateAsync(RestaurantDetailViewModel.With(restaurantId: restaurant.Id));
     }
 }

@@ -74,6 +74,11 @@
                         <Label Grid.Column="2" Text="›" FontSize="32" TextColor="#CED4DA" VerticalOptions="Center" />
                     </Grid>
                 </Frame>
+
+                <!-- Reload -->
+                <Frame Padding="15" CornerRadius="12" HasShadow="True">
+                    <Button Text="Reload Page" Command="{Binding ReloadPageCommand}" />
+                </Frame>
                 
             </VerticalStackLayout>
         </ScrollView>

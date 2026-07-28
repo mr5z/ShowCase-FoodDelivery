@@ -4,8 +4,8 @@ using CommunityToolkit.Mvvm.Input;
 using FoodDelivery.Models;
 using FoodDelivery.Services;
 using Nkraft.MvvmEssentials;
+using Nkraft.MvvmEssentials.Attributes;
 using Nkraft.MvvmEssentials.Services;
-using Nkraft.MvvmEssentials.Services.Navigation;
 using Nkraft.MvvmEssentials.ViewModels;
 using MenuItem = FoodDelivery.Models.MenuItem;
 
@@ -21,6 +21,7 @@ public partial class RestaurantDetailViewModel(
     private readonly IPopupService _popupService = popupService;
     private readonly IRestaurantService _restaurantService = restaurantService;
 
+    [NavigationParameter]
     public int RestaurantId { get; set; }
 
     public Restaurant? Restaurant { get; set; }
@@ -49,12 +50,7 @@ public partial class RestaurantDetailViewModel(
     [RelayCommand]
     private async Task SelectMenuItem(MenuItem item)
     {
-        var parameters = new NavigationParameters
-        {
-            { "RestaurantId", RestaurantId },
-            { "Item", item }
-        };
-        var result = await _popupService.PresentAsync<AddToCartViewModel, bool>(parameters);
+        var result = await _popupService.PresentAsync(AddToCartViewModel.With(item: item, restaurantId: RestaurantId));
 
         if (result is { IsSuccess: true, Value: true })
         {

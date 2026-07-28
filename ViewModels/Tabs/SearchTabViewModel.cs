@@ -48,10 +48,6 @@ public partial class SearchTabViewModel(
         var restaurant = _restaurantService.GetAllRestaurants()
             .First(r => r.MenuItems.Any(mi => mi.Id == item.Id));
         
-        await _navigationService.NavigateAsync<ItemDetailViewModel, object>(new
-        {
-            ItemId = item.Id,
-            RestaurantId = restaurant.Id
-        });
+        await _navigationService.NavigateAsync(ItemDetailViewModel.With(itemId: item.Id, restaurantId: restaurant.Id));
     }
 }
