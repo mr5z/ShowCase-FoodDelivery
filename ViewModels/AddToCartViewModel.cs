@@ -14,7 +14,7 @@ public partial class AddToCartViewModel(IPopupService popupService, ICartService
 
     [NavigationParameter]
     public MenuItem Item { get; set; } = null!;
-
+    
     [NavigationParameter]
     public int RestaurantId { get; set; }
 
