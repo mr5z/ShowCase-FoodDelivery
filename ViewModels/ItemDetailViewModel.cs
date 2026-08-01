@@ -19,7 +19,6 @@ public partial class ItemDetailViewModel(INavigationService navigationService) :
     [RelayCommand]
     private async Task GoBack()
     {
-        await _navigationService.NavigateAsync(With(itemId: 0, restaurantId: 0));
         await _navigationService.NavigateBackAsync();
     }
 }
