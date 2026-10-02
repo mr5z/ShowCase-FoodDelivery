@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="../CrossUtility/src/Nkraft.CrossUtility.csproj" />
+  <Project Path="../Mopups/Mopups/Mopups.Maui/Mopups.csproj" />
+  <Project Path="src/Nkraft.MvvmEssentials.csproj" />
+  <Project Path="src/SourceGenerator/Nkraft.MvvmEssentials.SourceGenerator.csproj" />
+  <Project Path="tests/Nkraft.MvvmEssentials.UnitTest.csproj" />
+</Solution>

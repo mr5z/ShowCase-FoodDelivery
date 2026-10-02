@@ -6,9 +6,7 @@ using FoodDelivery.ViewModels;
 using FoodDelivery.ViewModels.Menus;
 using FoodDelivery.ViewModels.Tabs;
 using Microsoft.Extensions.Logging;
-using Mopups.Hosting;
 using Nkraft.MvvmEssentials;
-using Nkraft.MvvmEssentials.Services;
 
 namespace FoodDelivery;
 
@@ -20,7 +18,6 @@ public static class MauiProgram
         builder
             .UseMauiApp<App>()
             .UseMauiCommunityToolkit()
-            .ConfigureMopups()
             .ConfigureMvvmEssentials(registry =>
             {
                 // Main FlyoutPage setup - showcases FlyoutHostViewModel

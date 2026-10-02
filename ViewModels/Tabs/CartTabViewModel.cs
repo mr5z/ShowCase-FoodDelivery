@@ -36,6 +36,20 @@ public partial class CartTabViewModel : TabViewModel
         _cartService.CartUpdated += OnCartUpdated;
     }
 
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        var a = 1;
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+
+        var a = 1;
+    }
+
     protected override void OnTabSelected()
     {
         base.OnTabSelected();
