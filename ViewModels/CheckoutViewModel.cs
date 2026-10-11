@@ -1,6 +1,7 @@
 using CommunityToolkit.Mvvm.Input;
 using FoodDelivery.Models;
 using FoodDelivery.Services;
+using Nkraft.MvvmEssentials;
 using Nkraft.MvvmEssentials.Services;
 using Nkraft.MvvmEssentials.ViewModels;
 
@@ -8,18 +9,18 @@ namespace FoodDelivery.ViewModels;
 
 public partial class CheckoutViewModel(
     INavigationService navigationService,
+    IModalService modalService,
     ICartService cartService,
     IOrderHistoryService orderHistoryService)
     : PageViewModel
 {
     private readonly INavigationService _navigationService = navigationService;
+    private readonly IModalService _modalService = modalService;
     private readonly ICartService _cartService = cartService;
     private readonly IOrderHistoryService _orderHistoryService = orderHistoryService;
 
-    public string StreetAddress { get; set; } = "123 Main St";
-    public string Apartment { get; set; } = "Apt 4B";
-    public string City { get; set; } = "San Francisco";
-    public string ZipCode { get; set; } = "94102";
+    public DeliveryAddress Address { get; set; } = new("123 Main St", "Apt 4B", "San Francisco", "94102");
+    public string AddressSummary => Address.ToString();
     public string SelectedPaymentMethod { get; set; } = "CreditCard";
     public string DeliveryInstructions { get; set; } = string.Empty;
 
@@ -30,22 +31,12 @@ public partial class CheckoutViewModel(
     [RelayCommand]
     private async Task PlaceOrder()
     {
-        // Validate address fields
-        if (string.IsNullOrWhiteSpace(StreetAddress) || 
-            string.IsNullOrWhiteSpace(City) || 
-            string.IsNullOrWhiteSpace(ZipCode))
-        {
-            return;
-        }
-
         // Create order from cart
         var order = new Order
         {
             ItemsCount = _cartService.GetTotalItems(),
             Total = Total,
-            DeliveryAddress = string.IsNullOrWhiteSpace(Apartment)
-                ? $"{StreetAddress}, {City} {ZipCode}"
-                : $"{StreetAddress}, {Apartment}, {City} {ZipCode}",
+            DeliveryAddress = Address.ToString(),
             PaymentMethod = SelectedPaymentMethod,
             DeliveryInstructions = DeliveryInstructions
         };
@@ -58,6 +49,22 @@ public partial class CheckoutViewModel(
 
         // Navigate back to home
         await _navigationService.NavigateToRootAsync();
+    }
+
+    [RelayCommand]
+    private async Task EditAddress()
+    {
+        var destination = EditAddressViewModel.With(
+            street: Address.Street,
+            apartment: Address.Apartment,
+            city: Address.City,
+            zipCode: Address.ZipCode);
+
+        var result = await _modalService.PresentAsync(destination);
+        if (result.TryGetValue(out var address))
+        {
+            Address = address;
+        }
     }
 
     [RelayCommand]

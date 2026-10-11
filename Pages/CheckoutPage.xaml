@@ -42,21 +42,19 @@
                         <Label Text="📍 Delivery Address" 
                                FontSize="18" 
                                FontAttributes="Bold" />
-                        <Entry Placeholder="Street Address" 
-                               Text="{Binding StreetAddress}"
-                               BackgroundColor="#F8F9FA" />
-                        <Entry Placeholder="Apartment, Suite, etc." 
-                               Text="{Binding Apartment}"
-                               BackgroundColor="#F8F9FA" />
-                        <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
-                            <Entry Grid.Column="0" 
-                                   Placeholder="City" 
-                                   Text="{Binding City}"
-                                   BackgroundColor="#F8F9FA" />
-                            <Entry Grid.Column="1" 
-                                   Placeholder="ZIP" 
-                                   Text="{Binding ZipCode}"
-                                   BackgroundColor="#F8F9FA" />
+                        <Grid ColumnDefinitions="*,Auto" ColumnSpacing="10">
+                            <Label Grid.Column="0"
+                                   Text="{Binding AddressSummary}"
+                                   FontSize="16"
+                                   VerticalOptions="Center"
+                                   LineBreakMode="WordWrap" />
+                            <Button Grid.Column="1"
+                                    Text="Change"
+                                    Command="{Binding EditAddressCommand}"
+                                    BackgroundColor="#F8F9FA"
+                                    TextColor="#28A745"
+                                    FontAttributes="Bold"
+                                    CornerRadius="10" />
                         </Grid>
                     </VerticalStackLayout>
                 </Border>

@@ -48,3 +48,10 @@ public class Order
     public required string PaymentMethod { get; set; }
     public required string DeliveryInstructions { get; set; }
 }
+
+public sealed record DeliveryAddress(string Street, string Apartment, string City, string ZipCode)
+{
+    public override string ToString() => string.IsNullOrWhiteSpace(Apartment)
+        ? $"{Street}, {City} {ZipCode}"
+        : $"{Street}, {Apartment}, {City} {ZipCode}";
+}

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+             xmlns:vm="clr-namespace:FoodDelivery.ViewModels"
+             x:Class="FoodDelivery.Pages.EditAddressPage"
+             x:DataType="vm:EditAddressViewModel"
+             ios:Page.ModalPresentationStyle="PageSheet"
+             Title="Delivery Address">
+
+    <Grid RowDefinitions="Auto,*,Auto">
+
+        <!-- Header -->
+        <Border Grid.Row="0"
+                Padding="20"
+                StrokeThickness="0"
+                StrokeShape="RoundRectangle 0,0,20,20"
+                BackgroundColor="#28A745"
+                Shadow="{Shadow Brush=Black, Opacity=0.15, Radius=10, Offset='0,2'}">
+            <VerticalStackLayout Spacing="5">
+                <Label Text="📍 Delivery Address"
+                       FontSize="28"
+                       FontAttributes="Bold"
+                       TextColor="White" />
+                <Label Text="Where should we bring your order?"
+                       FontSize="14"
+                       TextColor="White"
+                       Opacity="0.9" />
+            </VerticalStackLayout>
+        </Border>
+
+        <!-- Form -->
+        <ScrollView Grid.Row="1" Padding="20">
+            <VerticalStackLayout Spacing="12">
+                <Label Text="Street Address *" FontSize="14" FontAttributes="Bold" />
+                <Entry Placeholder="123 Main St"
+                       Text="{Binding Street}"
+                       BackgroundColor="#F8F9FA" />
+
+                <Label Text="Apartment, Suite, etc." FontSize="14" FontAttributes="Bold" />
+                <Entry Placeholder="Optional"
+                       Text="{Binding Apartment}"
+                       BackgroundColor="#F8F9FA" />
+
+                <Grid ColumnDefinitions="*,*" ColumnSpacing="10" RowDefinitions="Auto,Auto" RowSpacing="12">
+                    <Label Grid.Row="0" Grid.Column="0" Text="City *" FontSize="14" FontAttributes="Bold" />
+                    <Label Grid.Row="0" Grid.Column="1" Text="ZIP *" FontSize="14" FontAttributes="Bold" />
+                    <Entry Grid.Row="1" Grid.Column="0"
+                           Placeholder="City"
+                           Text="{Binding City}"
+                           BackgroundColor="#F8F9FA" />
+                    <Entry Grid.Row="1" Grid.Column="1"
+                           Placeholder="ZIP"
+                           Keyboard="Numeric"
+                           Text="{Binding ZipCode}"
+                           BackgroundColor="#F8F9FA" />
+                </Grid>
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- Actions -->
+        <Grid Grid.Row="2" Padding="20" ColumnDefinitions="*,*" ColumnSpacing="10">
+            <Button Grid.Column="0"
+                    Text="Cancel"
+                    Command="{Binding DismissCommand}"
+                    BackgroundColor="#6C757D"
+                    TextColor="White"
+                    HeightRequest="55"
+                    CornerRadius="12" />
+            <Button Grid.Column="1"
+                    Text="Save"
+                    Command="{Binding SaveCommand}"
+                    BackgroundColor="#28A745"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    HeightRequest="55"
+                    CornerRadius="12" />
+        </Grid>
+
+    </Grid>
+
+</ContentPage>
